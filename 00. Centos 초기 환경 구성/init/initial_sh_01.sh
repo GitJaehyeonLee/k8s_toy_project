@@ -4,8 +4,8 @@
 echo "=================== Network ================================"
 sudo yum update -y
 sudo yum install vim curl git wget net-tools -y
-sudo sed -i 's/rhgb quiet/rhgb quiet net.ifnames=0 biosdevname=0/g' /etc/default/grub
-sudo mv /etc/sysconfig/network-scripts/ifcfg-ens32 /etc/sysconfig/network-scripts/ifcfg-eth0
+sudo sed -i 's/rhgb quiet"/rhgb quiet net.ifnames=0 biosdevname=0"/g' /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
 
 echo "=================== shutdown Firewall & SELinux ================================"
 systemctl stop firewalld ; systemctl disable firewalld
