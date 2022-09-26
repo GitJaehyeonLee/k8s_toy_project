@@ -21,6 +21,7 @@ yum --disablerepo="*" --enablerepo="elrepo-kernel" list available
 yum --enablerepo=elrepo-kernel install kernel-lt -y
 grub2-set-default 0
 
+echo "============================= ovs switch ================================"
 yum clean all
 yum install -y epel-release https://www.rdoproject.org/repos/rdo-release.rpm
 yum install -y docker openvswitch bridge-utils
